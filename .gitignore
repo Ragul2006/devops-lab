@@ -1,0 +1,16 @@
+# Build artifacts and caches
+target/
+**/target/
+.gradle/
+**/.gradle/
+build/
+**/build/
+
+# Compiled Java
+*.class
+*.jar
+*.war
+
+# OS generated files
+.DS_Store
+Thumbs.db

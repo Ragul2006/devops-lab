@@ -1,0 +1,22 @@
+---
+- name: Configure Web Application
+  hosts: web
+  become: true
+  tasks:
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+        update_cache: true
+
+    - name: Start and enable Apache
+      ansible.builtin.service:
+        name: apache2
+        state: started
+        enabled: true
+
+    - name: Create web page
+      ansible.builtin.copy:
+        content: "<h1>Welcome to DevOps Web Application</h1>"
+        dest: /var/www/html/index.html
+        mode: "0644"

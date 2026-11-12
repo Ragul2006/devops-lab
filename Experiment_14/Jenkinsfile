@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage('Deploy locally') {
+            steps {
+                sh 'ansible-playbook -i inventory deploy.yml'
+            }
+        }
+    }
+}

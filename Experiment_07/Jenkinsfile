@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build and Regression Test') {
+            steps {
+                sh 'mvn -B clean verify'
+            }
+        }
+    }
+    post {
+        always {
+            junit 'target/surefire-reports/TEST-*.xml'
+        }
+    }
+}

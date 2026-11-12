@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B clean package'
+            }
+        }
+        stage('Verify') {
+            steps {
+                sh 'mvn -B verify'
+            }
+        }
+    }
+}

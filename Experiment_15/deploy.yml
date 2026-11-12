@@ -1,0 +1,16 @@
+---
+- name: Deploy Local Application
+  hosts: local
+  become: true
+  tasks:
+    - name: Create application directory
+      ansible.builtin.file:
+        path: /opt/myapp
+        state: directory
+        mode: "0755"
+
+    - name: Deploy application content
+      ansible.builtin.copy:
+        content: "Welcome to DevOps CD Pipeline"
+        dest: /opt/myapp/index.html
+        mode: "0644"

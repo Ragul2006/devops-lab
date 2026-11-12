@@ -1,0 +1,16 @@
+---
+- name: Deploy application locally
+  hosts: local
+  become: true
+  tasks:
+    - name: Create deployment directory
+      ansible.builtin.file:
+        path: /opt/devops-cd
+        state: directory
+        mode: "0755"
+
+    - name: Deploy application page
+      ansible.builtin.copy:
+        content: "CD Pipeline Successful"
+        dest: /opt/devops-cd/index.html
+        mode: "0644"

@@ -1,0 +1,16 @@
+---
+- name: Configure Local Server
+  hosts: local
+  become: true
+  tasks:
+    - name: Create DevOps Lab directory
+      ansible.builtin.file:
+        path: /opt/devops-lab
+        state: directory
+        mode: "0755"
+
+    - name: Create result file
+      ansible.builtin.copy:
+        content: "Ansible Configuration Management Successful"
+        dest: /opt/devops-lab/result.txt
+        mode: "0644"

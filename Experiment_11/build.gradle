@@ -1,0 +1,5 @@
+tasks.register('printName') {
+    doLast {
+        println 'Name: Your Name'
+    }
+}
